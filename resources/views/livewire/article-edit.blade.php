@@ -14,9 +14,9 @@
                 <flux:subheading>Modifier les informations de l'article comme il se doit</flux:subheading>
             </div>
 
-            <flux:input wire:model="title" label="Titre" placeholder="Titre" />
-            <flux:input wire:model="url" label="Url" placeholder="l'Url" />
-            <flux:input wire:model="image" label="Url de l'image" placeholder="Url de l'Image" />
+            <flux:textarea wire:model="title" label="Titre" placeholder="Titre de l'article" />
+            <flux:textarea wire:model="url" label="Url" placeholder="Url de l'article" />
+            <flux:textarea wire:model="image" label="Url de l'image" placeholder="Url de l'Image" />
             <!-- Sélecteur de la date -->
             <flux:input type="date" label="Date" wire:model="date_article" max="2999-12-31" />
 

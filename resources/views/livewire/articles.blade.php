@@ -44,7 +44,7 @@
 
     <!-- Barre de recherche -->
     <div style="padding: 5px;"></div>
-    <flux:input kbd="⌘K" icon="magnifying-glass" placeholder="Search..." type="text" id="search"/>
+    <flux:input kbd="⌘K" icon="magnifying-glass" placeholder="Rechercher..." type="text" id="search"/>
     <div style="padding: 5px;"></div>
     
     <script>
@@ -95,7 +95,7 @@
 
                         <td class="px-6 py-2">
                             <flux:dropdown>
-                                <flux:button icon:trailing="chevron-down" variant="primary">Options</flux:button>
+                                <flux:button variant="primary"><flux:icon.chevron-down />Options</flux:button>
                                 <flux:menu>
                                     <flux:menu.item icon="pencil-square" kbd="✏️" wire:click="edit({{ $article->id }})">Modifier</flux:menu.item>
                                     <flux:menu.item icon="trash" variant="danger" kbd="🗑️" wire:click="delete({{ $article->id }})">Supprimer</flux:menu.item>
