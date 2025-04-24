@@ -1,0 +1,43 @@
+#<IfModule mod_rewrite.c>
+#    RewriteEngine On
+
+    # Rediriger tout le trafic HTTP vers HTTPS
+#    RewriteCond %{HTTPS} off
+#    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Rediriger toutes les requêtes vers le répertoire public
+#    RewriteCond %{REQUEST_URI} !^/public/
+#    RewriteRule ^(.*)$ /public/$1 [L]
+#</IfModule>
+
+
+# To prevent access to .env and other files
+#<Files .*>
+#    # Apache 2.2
+#    <IfModule !mod_authz_core.c>
+#        Order deny,allow
+#        Deny from all
+#    </IfModule>
+#
+#    # Apache 2.4
+#    <IfModule mod_authz_core.c>
+#        Require all denied
+#    </IfModule>
+#</Files>
+
+# Redirect root to /public directory
+#<IfModule mod_alias.c>
+#    RedirectMatch 301 ^/$ /public/
+#</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redirect all HTTP traffic to HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Redirect requests to the public directory
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ /public/$1 [L]
+</IfModule>
