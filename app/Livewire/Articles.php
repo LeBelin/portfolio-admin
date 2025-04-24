@@ -9,7 +9,6 @@ use Flux;
 
 class Articles extends Component
 {
-
     public $articles;
     public $articleId;
     public $articleName;

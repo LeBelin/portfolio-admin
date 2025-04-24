@@ -4,6 +4,11 @@
     <flux:modal.trigger name="create-article">
         <flux:button variant="primary">Ajouter un article</flux:button>
     </flux:modal.trigger>
+<!-- <a href="{{ route('article.create') }}">
+    <flux:button variant="primary">Ajouter un article</flux:button>
+</a> -->
+
+
     <!-- crée le client dans le dossier livewire -->
     <livewire:article-create />
     <!-- edit le client dans le dossier livewire -->
@@ -20,9 +25,11 @@
         <div class="space-y-6">
         @if($articleId)
             <div>
-                <flux:heading size="lg">Supprimer l'article : {{ $articleName }} ?</flux:heading>
+                <flux:heading size="lg">Supprimer l'article N°{{ $articleId }} ?</flux:heading>
 
                 <flux:subheading>
+                    <p>Titre de l'article : <br>{{ $articleName }}</p>
+                    <br><flux:separator /><br>
                     <p>Si vous le suprimmer vous ne pourrez pas revenir en arriere.</p>
                     <p>Attention a suprimmer le bon !</p>
                 </flux:subheading>
@@ -83,7 +90,7 @@
                         </td>
                         <td class="px-6 py-2 text-gray-600 dark:text-gray-300">
                             <a href="{{ $article->url }}" target="_blank">
-                                <flux:button variant="primary" size="sm">Lien</flux:button>
+                                <flux:button variant="primary" size="sm"><flux:icon.link /> Lien</flux:button>
                             </a>
                         </td>
                         <td class="px-6 py-2 text-gray-600 dark:text-gray-300">
