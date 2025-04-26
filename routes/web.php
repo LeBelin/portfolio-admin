@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 use App\Http\Controllers\DashboardController;
+use App\Livewire\Articles\ArticleIndex;
+use App\Livewire\Articles\ArticleCreate;
+use App\Livewire\Articles\ArticleEdit;
 
 Route::get('/', function () {
     return view('welcome');
@@ -15,12 +18,16 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-    Route::view('articles', 'articles')
-    ->middleware(['auth', 'verified'])
-    ->name('articles');
+    // Route::view('articles', 'articles')
+    // ->middleware(['auth', 'verified'])
+    // ->name('articles');
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
+
+    Route::get("articles", ArticleIndex::class)->name("articles.index");
+    Route::get("articles/create", ArticleCreate::class)->name("articles.create");
+    Route::get("articles/{id}/edit", ArticleEdit::class)->name("articles.edit");
 
     Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
     Volt::route('settings/password', 'settings.password')->name('settings.password');
