@@ -5,6 +5,7 @@
         <flux:separator variant="subtle" />
     </div>
 
+    <!-- message de succès -->
     @if(session('success'))
         <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 10000)" class="p-4 mb-4 text-sm text-green-800 bg-green-100 border-l-4 border-green-500 rounded-lg shadow-md transition-all transform hover:scale-105 hover:shadow-xl">
             <div class="flex items-center">
@@ -16,14 +17,27 @@
         </div>
     @endif
 
-
-
-
     <!-- btn ajouter -->
     <a href="{{ route('articles.create') }}" class="mb-4">
-        <flux:button variant="primary">Ajouter un article</flux:button>
+        <flux:button variant="primary"><flux:icon.plus />Ajouter un article</flux:button>
     </a>
 
+    <!-- Barre de recherche -->
+    <div style="padding: 5px;"></div>
+    <flux:input kbd="⌘K" icon="magnifying-glass" placeholder="Rechercher..." type="text" id="search"/>
+    <div style="padding: 5px;"></div>
+    
+    <script>
+        document.getElementById('search').addEventListener('keyup', function () {
+            let filter = this.value.toLowerCase();
+            let rows = document.querySelectorAll("tbody tr");
+
+            rows.forEach(row => {
+                let text = row.innerText.toLowerCase();
+                row.style.display = text.includes(filter) ? "" : "none";
+            });
+        });
+    </script>
 
     <!-- tableau -->
     <div class="overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 mt-6 space-y-6">

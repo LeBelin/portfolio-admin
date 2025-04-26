@@ -19,7 +19,6 @@ class ArticleIndex extends Component
         $article = Article::find($id);
         $article->delete();
 
-        session()->flash('success', 'Article supprimé avec succès.');
-
+        return to_route('articles.index')->with('success', 'Article supprimé avec succès.');
     }
 }

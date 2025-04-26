@@ -7,7 +7,7 @@
 
     <!-- btn retour -->
     <a href="{{ route('articles.index') }}" class="mb-4">
-        <flux:button variant="danger">Retour</flux:button>
+        <flux:button variant="danger"><flux:icon.arrow-left />Retour</flux:button>
     </a>
 
     <div class="w-150">
