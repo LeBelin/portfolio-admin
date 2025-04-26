@@ -7,6 +7,8 @@ use App\Livewire\Articles\ArticleIndex;
 use App\Livewire\Articles\ArticleCreate;
 use App\Livewire\Articles\ArticleEdit;
 
+use App\Livewire\Blogs\BlogIndex;
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
@@ -28,6 +30,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get("articles", ArticleIndex::class)->name("articles.index");
     Route::get("articles/create", ArticleCreate::class)->name("articles.create");
     Route::get("articles/{id}/edit", ArticleEdit::class)->name("articles.edit");
+
+    Route::get("blogs", BlogIndex::class)->name("blogs.index");
 
     Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
     Volt::route('settings/password', 'settings.password')->name('settings.password');

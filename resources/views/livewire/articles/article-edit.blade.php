@@ -7,7 +7,7 @@
 
     <!-- btn retour -->
     <a href="{{ route('articles.index') }}" class="mb-4">
-        <flux:button variant="danger"><flux:icon.arrow-left />Retour</flux:button>
+        <flux:button variant="danger" icon="arrow-left">Retour</flux:button>
     </a>
 
     <div class="w-150">
@@ -16,7 +16,7 @@
             <flux:input wire:model="url" type="url" label="Lien" description="Modifier le lien l'article." placeholder="URL de l'article" />
             <flux:input wire:model="image" type="url" label="Image" description="Modifier l'url de l'image de l'article." placeholder="URL de l'image" />
             <flux:input wire:model="date_article" type="date" label="Date" description="Modifier la date de l'article." placeholder="Date de l'article" />
-            <flux:button type="submit" variant="primary">Modifier</flux:button>
+            <flux:button type="submit" variant="primary" icon="pencil">Modifier</flux:button>
         </form>
     </div>
 

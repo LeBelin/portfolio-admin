@@ -19,7 +19,7 @@
 
     <!-- btn ajouter -->
     <a href="{{ route('articles.create') }}" class="mb-4">
-        <flux:button variant="primary"><flux:icon.plus />Ajouter un article</flux:button>
+        <flux:button variant="primary" icon="plus">Ajouter un article</flux:button>
     </a>
 
     <!-- Barre de recherche -->
@@ -59,7 +59,7 @@
                         </td>
                         <td class="px-6 py-2 text-gray-600 dark:text-gray-300">
                             <a href="{{ $article->url }}" target="_blank">
-                                <flux:button variant="primary" size="sm"><flux:icon.link /> Lien</flux:button>
+                                <flux:button variant="primary" size="sm" icon="link">Lien</flux:button>
                             </a>
                         </td>
                         <td class="px-6 py-2 text-gray-600 dark:text-gray-300">
@@ -71,8 +71,8 @@
 
                         <td class="px-6 py-2">
                             <flux:dropdown>
-                                <flux:button variant="primary">
-                                    <flux:icon.chevron-down />Options
+                                <flux:button variant="primary" icon="chevron-down">
+                                    Options
                                 </flux:button>
                                 <flux:menu>
                                     <a href="{{ route('articles.edit', $article->id) }}">
