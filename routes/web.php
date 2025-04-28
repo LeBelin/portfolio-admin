@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Livewire\Articles\ArticleIndex;
 use App\Livewire\Articles\ArticleCreate;
 use App\Livewire\Articles\ArticleEdit;
+use App\Livewire\Articles\ArticleShow;
 
 use App\Livewire\Blogs\BlogIndex;
 
@@ -30,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get("articles", ArticleIndex::class)->name("articles.index");
     Route::get("articles/create", ArticleCreate::class)->name("articles.create");
     Route::get("articles/{id}/edit", ArticleEdit::class)->name("articles.edit");
+    Route::get("articles/{id}", ArticleShow::class)->name("articles.show");
 
     Route::get("blogs", BlogIndex::class)->name("blogs.index");
 

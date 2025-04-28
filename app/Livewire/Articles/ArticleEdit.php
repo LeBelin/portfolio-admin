@@ -20,8 +20,6 @@ class ArticleEdit extends Component
         $this->image = $article->image;
         $this->date_article = $article->date_article;
     }
-    
-    
 
     public function render()
     {

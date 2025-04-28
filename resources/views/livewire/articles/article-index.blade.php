@@ -7,7 +7,7 @@
 
     <!-- message de succès -->
     @if(session('success'))
-        <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 10000)" class="p-4 mb-4 text-sm text-green-800 bg-green-100 border-l-4 border-green-500 rounded-lg shadow-md transition-all transform hover:scale-105 hover:shadow-xl">
+        <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 10000)" class="p-4 mb-4 text-sm text-green-800 bg-green-100 border-l-4 border-green-500 rounded-lg shadow-md">
             <div class="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -18,14 +18,13 @@
     @endif
 
     <!-- btn ajouter -->
-    <a href="{{ route('articles.create') }}" class="mb-4">
+    <a href="{{ route('articles.create') }}">
         <flux:button variant="primary" icon="plus">Ajouter un article</flux:button>
     </a>
 
     <!-- Barre de recherche -->
-    <div style="padding: 5px;"></div>
+    <div style="padding: 10px;"></div>
     <flux:input kbd="⌘K" icon="magnifying-glass" placeholder="Rechercher..." type="text" id="search"/>
-    <div style="padding: 5px;"></div>
     
     <script>
         document.getElementById('search').addEventListener('keyup', function () {
@@ -40,7 +39,7 @@
     </script>
 
     <!-- tableau -->
-    <div class="overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 mt-6 space-y-6">
+    <div class="overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 mt-2 space-y-6">
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400" style="background-color:#f0f7ff;">
                 <tr>
@@ -53,7 +52,7 @@
             </thead>
             <tbody>
                 @foreach($articles->sortByDesc('date_article') as $article)
-                    <tr class="odd:bg-white even:bg-gray-50 border-b dark:border-gray-700 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
+                    <tr class="odd:bg-white even:bg-gray-50 border-b dark:border-gray-700 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">  
                         <td class="px-6 py-2 text-gray-600 dark:text-gray-300">
                             {{ $article->title }}
                         </td>
@@ -75,6 +74,11 @@
                                     Options
                                 </flux:button>
                                 <flux:menu>
+                                    <a href="{{ route('articles.show', $article->id) }}">
+                                        <flux:menu.item icon="eye" kbd="👀">
+                                            Voir
+                                        </flux:menu.item>
+                                    </a>
                                     <a href="{{ route('articles.edit', $article->id) }}">
                                         <flux:menu.item icon="pencil-square" kbd="✏️">
                                             Modifier

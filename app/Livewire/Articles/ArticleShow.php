@@ -5,13 +5,18 @@ namespace App\Livewire\Articles;
 use Livewire\Component;
 use App\Models\Article;
 
-class ArticleIndex extends Component
+class ArticleShow extends Component
 {
+    public $article;
+
+    public function mount($id)
+    {
+        $this->article = Article::find($id);
+    }
+    
     public function render()
     {
-        $articles = Article::get();
-
-        return view('livewire.articles.article-index', compact('articles'));
+        return view('livewire.articles.article-show');
     }
 
     public function delete($id)
