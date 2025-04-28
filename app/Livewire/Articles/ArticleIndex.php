@@ -4,14 +4,19 @@ namespace App\Livewire\Articles;
 
 use Livewire\Component;
 use App\Models\Article;
+use Livewire\WithPagination;
 
 class ArticleIndex extends Component
 {
+    use WithPagination;
+
     public function render()
     {
         $articles = Article::get();
 
-        return view('livewire.articles.article-index', compact('articles'));
+        return view('livewire.articles.article-index', [
+            'articles' => Article::paginate(10),
+        ]);
     }
 
     public function delete($id)
